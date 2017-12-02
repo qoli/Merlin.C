@@ -22,9 +22,13 @@ docker 操作腳本
 
 核心代碼
 
+* fireServer.c 通信服務器
+* fireClientSend.c 發送信息
+* fireClientRead.c 讀取信息
+
 ##### sourceTestClient
 
-基於 C 編寫的測試客戶端
+測試客戶端
 
 
 
@@ -32,6 +36,7 @@ docker 操作腳本
 
 1. asuswrt-merlin-build 下運行 download_merlin.sh 下載梅林源碼
 2. shDocker 下 install.sh 初始化 Docker 的 交叉編譯 環境
+3. 在「sourceFireServer」下建立「lib」放置 libevent-2.1.8-stable 庫文件
 
 使用前注意修改 **install.sh** 裡面的文件位置
 
@@ -41,6 +46,8 @@ docker 操作腳本
 
 1. shDocker: run.sh 進入 交叉編譯 容器
 2. 打開 root/build 目錄，運行 shBuild-Server.sh 腳本
+
+
 
 
 
