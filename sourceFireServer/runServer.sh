@@ -3,9 +3,8 @@
 slp="6s"
 
 echo ""
-echo "[SH] runServer"
+echo "[SH] runServer on 6088"
 netstat -anp | grep 6088
-echo ""
 while [ true ]; do
 	code=$(netstat -anp | grep 6088 | awk '{print $6}')
 	

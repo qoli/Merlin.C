@@ -14,5 +14,6 @@ CC|cc)
 	echo ""
 	echo "[SH] copy Binary to Router"
 	scp ./Binary/fireServer admin@192.168.1.1:/tmp/home/root/MerlinC
+	scp ./runServer.sh admin@192.168.1.1:/tmp/home/root/MerlinC
 	;;
 esac
