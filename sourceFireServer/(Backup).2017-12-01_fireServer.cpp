@@ -7,9 +7,8 @@
 
 #define BUFSIZE 128
 
-int doDoctor() {
+void doDoctor() {
 	system("chmod +x ./script/*.sh");
-	return 0;
 }
 
 int main(int argc , char *argv[])
@@ -71,7 +70,7 @@ int main(int argc , char *argv[])
 
 			if (strcmp(client_message,doctor)==0) {
 				doDoctor();
-				send(client_sock , "doDoctor..." , BUFSIZE, 0);
+				send(client_sock , "doDoctor...\n" , BUFSIZE, 0);
 			} else {
 				char err[50] = "> not found";
 				char command[128] = "";

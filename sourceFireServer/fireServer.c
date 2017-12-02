@@ -57,7 +57,7 @@ void message() {
 	const char *version;
 	version = event_get_version();
 	printf("\n");
-	printf("Libevent %s\n", version);
+	// printf("Libevent %s\n", version);
 	printf("Fire Server is running \n\n");
 }
 
@@ -95,8 +95,6 @@ void buffered_on_read(struct bufferevent *bev, void *arg)
 			/* Done. */
 			break;
 		}
-
-		// printf("Get Data: %s\n", data);
 
 		/* Send data to all connected clients except for the
 		 * client that sent the data. */
@@ -168,7 +166,7 @@ void on_accept(int fd, short ev, void *arg) {
 	/* Add the new client to the tailq. */
 	TAILQ_INSERT_TAIL(&client_tailq_head, client, entries);
 
-	printf("Accepted connection from %s\n", inet_ntoa(client_addr.sin_addr));
+	printf("Accepted connection from %s\n\n", inet_ntoa(client_addr.sin_addr));
 }
 
 int main(int argc, char **argv)
