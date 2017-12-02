@@ -1,1 +1,0 @@
-docker run -dt --name build -v /Users/qoli/Sites/Merlin-Build/asuswrt-merlin-build/asuswrt-merlin/asuswrt-merlin-380.68:/home/asuswrt-merlin -v /Users/qoli/Sites/Merlin-Build/Merlin.web:/root/build mritd/asuswrt-merlin-build

@@ -7,4 +7,3 @@ wget https://github.com/RMerl/asuswrt-merlin/archive/${ASUSWRT_MERLIN_VERSION}.t
 bsdtar -zxf ${ASUSWRT_MERLIN_VERSION}.tar.gz
 
 mv asuswrt-merlin-${ASUSWRT_MERLIN_VERSION} ./asuswrt-merlin
-

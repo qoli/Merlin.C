@@ -32,7 +32,8 @@ main(){
     export PATH=$PATH:/opt/brcm/hndtools-mipsel-linux/bin:/opt/brcm/hndtools-mipsel-uclibc/bin:/opt/brcm-arm/bin
     export LD_LIBRARY_PATH=$CROSS_TOOLCHAINS_DIR/lib
     echo -e " ${COLOR_GREEN}done${COLOR_END}"
-    #echo "$PATH"
+    echo "$PATH"
+    cd /root/build
 }
 fun_set_text_color
 main

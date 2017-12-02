@@ -1,12 +1,6 @@
-# Merlin C
+# Fire(Merlin) C Server
 
-一個具備全新 UI 的梅林 55 插件。
-
-
-
-##### 添加運行權限
-
-`chmod +x ./www/script/*.sh`
+基於 C 編寫的 Server 服務器端，與 Fire Router 進行通信
 
 
 
@@ -16,16 +10,86 @@
 
 交叉編譯 Dockerfile
 
-##### docker-sh
+##### shBuildForInstall
+
+為 install 安裝文件打包
+
+##### shDocker
 
 docker 操作腳本
 
-##### Merlin.web
+##### sourceFireServer
 
 核心代碼
 
----
+##### sourceTestClient
 
-### Merlin.web
+基於 C 編寫的測試客戶端
 
-基於 boa 作為服務器，C 代碼重新編寫舊有項目 PHP 部分。
+
+
+## 服務器端初始化流程
+
+1. asuswrt-merlin-build 下運行 download_merlin.sh 下載梅林源碼
+2. shDocker 下 install.sh 初始化 Docker 的 交叉編譯 環境
+
+使用前注意修改 **install.sh** 裡面的文件位置
+
+
+
+## 服務器端的編譯流程
+
+1. shDocker: run.sh 進入 交叉編譯 容器
+2. 打開 root/build 目錄，運行 shBuild-Server.sh 腳本
+
+
+
+## 編譯 fireServer
+
+```bash
+arm-linux-g++ fireServer.cpp -o ./Binary/fireServer -I/opt/crossinstall/libevent/include/ -L/opt/crossinstall/libevent/lib/ -lrt -levent -static
+```
+
+
+
+## 編譯 libevent
+
+##### 靜態編譯
+
+```bash
+./configure -disable-shared -enable-static --prefix=/opt/crossinstall/libevent --host=arm-linux CC=arm-linux-gcc CXX=arm-linux-g++
+```
+
+##### 動態編譯
+
+```bash
+./configure --prefix=/opt/crossinstall/libevent --host=arm-linux CC=arm-linux-gcc CXX=arm-linux-g++
+make
+make install
+```
+
+
+
+
+
+## 參考
+
+http://telegra.ph/交叉编译原版shadowsocks为koolshare梅林ss插件续命-08-07
+
+
+
+## 問題解決
+
+##### arm-linux-gcc 權限問題
+
+```Bash
+➜  build arm-linux-gcc -v           
+zsh: permission denied: arm-linux-gcc
+```
+
+```bash
+cd /home/asuswrt-merlin/release/src-rt-6.x.4708/toolchains/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin/
+
+chmod +x arm-linux-gcc
+```
+
