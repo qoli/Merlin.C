@@ -25,6 +25,7 @@ int main(int argc, char **argv) {
 	int sockfd;
 	char str[128];
 
+	// 判斷是否有參數
 	usage(argc,argv[0]);
 
 	// 鏈接服務器方法
@@ -35,6 +36,7 @@ int main(int argc, char **argv) {
 	strcat(str, argv[1]);
 	strcat(str, "\n");
 
+	// 發送字符
 	if ( send(sockfd , str , strlen(str) , 0) < 0) {
 		puts("Send failed");
 		return 1;
