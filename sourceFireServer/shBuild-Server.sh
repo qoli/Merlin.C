@@ -9,7 +9,7 @@ CC|cc)
 	./configure -disable-shared -enable-static --prefix=/opt/crossinstall/libevent --host=arm-linux CC=arm-linux-gcc CXX=arm-linux-g++
 	;;
 *)
-	echo "[SH] arm-linux-g++"
+	echo "[SH] arm-linux-gcc"
 	arm-linux-gcc fireServer.c -o ./Binary/fireServer -I/opt/crossinstall/libevent/include/ -L/opt/crossinstall/libevent/lib/ -lrt -levent -static
 	arm-linux-gcc fireClientRead.c -o ./Binary/fireClientRead -I/opt/crossinstall/libevent/include/ -L/opt/crossinstall/libevent/lib/ -lrt -levent -static
 	arm-linux-gcc fireClientSend.c -o ./Binary/fireClientSend -I/opt/crossinstall/libevent/include/ -L/opt/crossinstall/libevent/lib/ -lrt -levent -static

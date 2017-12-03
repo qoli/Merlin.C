@@ -13,6 +13,9 @@
 #include <event2/util.h>
 #include <event2/event.h>
 
+#include "Headres/fireHeadres.h"
+
+/* define. */
 #define SERVER_PORT 6088
 #define SERVER_ADDR "192.168.1.1"
 
@@ -20,15 +23,24 @@ void doDoctor() {
 	system("chmod +x ./script/*.sh");
 }
 
-void doExec() {
+void doExec(char *client_message) {
 	char err[50] = "> not found";
 	char command[128] = "";
+	char str[256];
 
-	// strcat(command, "./script/");
-	// strcat(command, client_message);
+	// 拼接命令
+	strcpy(command, "./script/");
+	strcat(command, client_message);
 
-	// // send(client_sock , client_message , strlen(client_message), 0);
-	// printf("[EXEC] Command: > %s\n", command);
+	/* 拼接發送 */
+	// strcpy(str,"./fireClientSend ");
+	// strcat(str,"\"");
+	// strcat(str,command);
+	// strcat(str,"\"");
+
+	// printf("%s\n", str);
+
+	system(str);
 
 	// char buf[BUFSIZE];
 	// FILE *fp;
@@ -82,45 +94,12 @@ void cmd_msg_cb(int fd, short events, void *arg) {
 	struct bufferevent* bev = (struct bufferevent*)arg;
 
 	msg[ret] = '\0';
-	//把终端消息发给服务器段
-	bufferevent_write(bev, msg, ret);
+	// bufferevent_write(bev, msg, ret);
 
 	printf("send message %s\r\n", msg);
 }
 
-int tcp_connect_server(const char* server_ip, int port) {
-	struct sockaddr_in server_addr;
-	int status = -1;
-	int sockfd;
-
-	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(port);
-	status = inet_aton(server_ip, &server_addr.sin_addr);
-	if (0 == status)
-	{
-		errno = EINVAL;
-		return -1;
-	}
-
-	sockfd = socket(AF_INET, SOCK_STREAM, 0);
-	if ( sockfd == -1 )
-		return sockfd;
-
-	status = connect(sockfd, (struct sockaddr*)&server_addr, sizeof(server_addr) );
-
-	if ( status == -1 )
-	{
-		close(sockfd);
-		return -1;
-	}
-
-	evutil_make_socket_nonblocking(sockfd);
-
-	return sockfd;
-}
-
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 
 	printf("fireClientRead ... \n\n");
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 date
 echo ""
-echo "[SH] g++ Compiler"
+echo "[SH] gcc Compiler"
 gcc fireTestClient.c -o fireTestClient -levent
 echo ""
 echo "[RUN] fireTestClient"
