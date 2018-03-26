@@ -32,6 +32,22 @@ docker 操作腳本
 
 
 
+## TODO
+
+- [x] Socket 通信基礎層搭建
+
+
+- [ ] Socket 各平台客戶端
+
+1. iOS
+2. Android
+3. Mac
+4. Windows
+5. Linux
+6. ARM-Linux
+
+
+
 ## 服務器端初始化流程
 
 1. asuswrt-merlin-build 下運行 download_merlin.sh 下載梅林源碼
