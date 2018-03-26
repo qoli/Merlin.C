@@ -46,9 +46,13 @@ docker 操作腳本
 5. Linux
 6. ARM-Linux
 
-- [ ] 指令執行
-- [ ] 指令 stdout 回顯（Socket）
+- [x] 指令執行
+- [x] 指令 stdout 回顯（Socket）
+- [ ] 通信加密
 
+
+1. Base64
+2. Base64 + 鹽
 
 
 ## 服務器端初始化流程
