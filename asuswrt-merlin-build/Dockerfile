@@ -1,6 +1,6 @@
 FROM ubuntu:16.04 
 
-LABEL maintainer="mritd <mritd1234@gmail.com>"
+LABEL maintainer="mritd <mritd@linux.com>"
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -15,7 +15,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-ENV ASUSWRT_MERLIN_VERSION 380.66
+ENV ASUSWRT_MERLIN_VERSION 380.70
 
 COPY build.sh /root/build.sh
 

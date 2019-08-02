@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ASUSWRT_MERLIN_VERSION=380.68
+ASUSWRT_MERLIN_VERSION=380.70
 
 wget https://github.com/RMerl/asuswrt-merlin/archive/${ASUSWRT_MERLIN_VERSION}.tar.gz
 

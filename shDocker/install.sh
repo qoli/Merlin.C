@@ -1,1 +1,1 @@
-docker run -dt --name build -v /Users/qoli/Documents/GitHub/Merlin.C/asuswrt-merlin-build/asuswrt-merlin:/home/asuswrt-merlin -v /Users/qoli/Documents/GitHub/Merlin.C/sourceFireServer:/root/build mritd/asuswrt-merlin-build
+docker run -dt --name build -v /Users/qoli/GitHub/Merlin.C/asuswrt-merlin-build/asuswrt-merlin:/home/asuswrt-merlin -v /Users/qoli/GitHub/Merlin.C/source:/root/build mritd/asuswrt-merlin-build
