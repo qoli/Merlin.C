@@ -27,9 +27,10 @@ main(){
         echo -e "${COLOR_RED}[error] /home/asuswrt-merlin/ not found${COLOR_END}"
         return 1
     fi
-    echo -e -n "${COLOR_PINK}setting Environment...${COLOR_END}"
+    echo -e -n "${COLOR_PINK} setting Environment...${COLOR_END}"
     CROSS_TOOLCHAINS_DIR=/opt/brcm-arm
     export PATH=$PATH:/opt/brcm/hndtools-mipsel-linux/bin:/opt/brcm/hndtools-mipsel-uclibc/bin:/opt/brcm-arm/bin
+    export CC=/home/asuswrt-merlin/release/src-rt-6.x.4708/toolchains/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin/arm-linux-gcc
     export LD_LIBRARY_PATH=$CROSS_TOOLCHAINS_DIR/lib
     echo -e " ${COLOR_GREEN}done${COLOR_END}"
     echo "$PATH"

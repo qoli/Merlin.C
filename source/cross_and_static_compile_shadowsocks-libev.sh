@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# apt install -y ia32-libs
-# apt install -y build-essential module-assistant
-# apt install -y gcc-multilib g++-multilib
-
 # cross & static compile shadowsocks-libev
-host=arm-linux
-# host=arm-brcm-linux-uclibcgnueabi
+# host=arm-linux
+host=arm-brcm-linux-uclibcgnueabi
 
-PCRE_VER=8.43
-PCRE_FILE="https://ftp.pcre.org/pub/pcre/pcre-$PCRE_VER.tar.gz"
+PCRE_VER=8.41
+PCRE_FILE="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-$PCRE_VER.tar.gz"
 
 MBEDTLS_VER=2.6.0
 MBEDTLS_FILE="https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz"
@@ -167,11 +163,11 @@ fi
 echo -e "binaries will be installed in ${green}${prefix}${plain}"
 
 prepare
-compile_pcre
-# compile_mbedtls
+# compile_pcre
+compile_mbedtls
 # compile_libsodium
 # compile_libev
-# compile_libc_ares
+# compile_libevbc_ares
 # compile_shadowsocks_libev
 # compile_simple_obfs
 # clean
